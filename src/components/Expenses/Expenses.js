@@ -4,6 +4,9 @@ import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import './Expenses.css';
 
+//card = makes the big box inside with the small components are placed.
+// we call the expenseitem component and so we import it
+// remember that props were kept within items
 const Expenses = (props) => {
   return (
     <Card className="expenses">

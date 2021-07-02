@@ -1,8 +1,8 @@
 import React from 'react';
-
 import Expenses from './components/Expenses/Expenses';
 
 const App = () => {
+  //Static Investment Array of Object
   const expenses = [
     {
       id: 'e1',
@@ -31,10 +31,13 @@ const App = () => {
   //   React.createElement('h2', {}, "Let's get started!"),
   //   React.createElement(Expenses, { items: expenses })
   // );
-
+//we call the component Expense which ctrl the general Layout of the expenses
+//we pass the props in it of the expenses array of object
+// props: items = {expenses}
   return (
     <div>
       <h2>Let's get started!</h2>
+      
       <Expenses items={expenses} />
     </div>
   );
