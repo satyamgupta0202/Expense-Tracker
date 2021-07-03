@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import ExpensesFilter from './ExpensesFilter';
 import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import './Expenses.css';
@@ -8,8 +8,14 @@ import './Expenses.css';
 // we call the expenseitem component and so we import it
 // remember that props were kept within items
 const Expenses = (props) => {
+  const [filteredYear , setFilteredYear ] = useState('2019')
+
+  const filterChangedHandler = (selectYear)=>{
+    setFilteredYear(selectYear);
+  }
   return (
     <Card className="expenses">
+      <ExpensesFilter selected ={filteredYear} onChangeFilter = {filterChangedHandler}/>
       <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}

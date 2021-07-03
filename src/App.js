@@ -25,6 +25,11 @@ const App = () => {
     },
   ];
 
+  const AddExpenseHandler = (expense)=> {
+    console.log("We are at Parent Directory");
+    console.log(expense);
+  }
+
   // return React.createElement(
   //   'div',
   //   {},
@@ -36,7 +41,7 @@ const App = () => {
 // props: items = {expenses}
   return (
     <div>
-      <NewExpense/>
+      <NewExpense onAddExpense = {AddExpenseHandler}/>
       <Expenses items={expenses} />
     </div>
   );

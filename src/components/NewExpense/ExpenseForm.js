@@ -1,34 +1,50 @@
 import React ,{useState} from "react";
 import './ExpenseForm.css'
 
-const ExpenseForm = ()=>{
+const ExpenseForm = (props)=>{
+
+   //useSattes for the Form Initial Conditions
    const [EnteredTitle,setEnteredTitle] = useState("")
    const [EnteredAmount,setEnteredAmount] = useState("")
    const [EnteredDate,setEnteredDate] = useState("")
+
+   //handles title of the form 
    const titleChangedHandler = (event)=>{
       console.log(event.target.value);
-      setEnteredTitle(event.target.value);
+      setEnteredTitle(event.target.value);   ///set the value of the title in the function to re-render it
    }
+   //handles aount and sets it in the function
    const amountChangedHandler = (event)=>{
       console.log(event.target.value);
       setEnteredAmount(event.target.value);
    }
+   //set the date
    const dateChangedHandler = (event)=>{
       console.log(event.target.value);
       setEnteredDate(event.target.value);
    }
+
+   //submit button handler extrat the data and then clear it
    const submitButtonHandler = (event) =>{
       event.preventDefault();
-      const formData = {
+      const expenseData = {
          title:EnteredTitle,
          amount:EnteredAmount,
          date:EnteredDate,
       }
+
+      //very Important : This is the unique way to move from child To parent ..this function call or ejects it's functionality
+      // to NewExpense file which displays the contnent in the NewExpense file that is the data of Form.
+      
+      props.onSaveExpenseData(expenseData);
+      ////////////////////////////////////////////////////////
       setEnteredTitle('');
       setEnteredAmount('');
       setEnteredDate('');
-      console.log(formData);
+     // console.log(expenseData);
+      
    } 
+   
 return (
 <form onSubmit={submitButtonHandler}>
     <div className="new-expense__controls">
