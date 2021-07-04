@@ -8,18 +8,33 @@ import './Expenses.css';
 // we call the expenseitem component and so we import it
 // remember that props were kept within items
 const Expenses = (props) => {
-  const [filteredYear , setFilteredYear ] = useState('2019')
+  const [filteredYear , setFilteredYear ] = useState('2020')
 
   const filterChangedHandler = (selectedYear)=>{
     setFilteredYear(selectedYear);
   }
+  const filteredExpenses = props.items.filter(expense => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+  // props.items.filter((e) => e.date.getFullYear() === filteredYear)
+  //         .map((expense) => (
+  //           <ExpenseItem
+  //             key={expense.id}
+  //             title={expense.title}
+  //             amount={expense.amount}
+  //             date={expense.date}
+  //           />
+  //         ))
   return (
     <Card className="expenses">
       <ExpensesFilter selected ={filteredYear} onChangeFilter = {filterChangedHandler}/>
-        {props.items.map((expense) => (
-      <ExpenseItem title={expense.title} 
+        {filteredExpenses.map((expense) => (
+      <ExpenseItem 
+      key={expense.id}
+      title={expense.title} 
       amount={expense.amount} 
-      date={expense.date}/>
+      date={expense.date}
+      />
       )) }
     </Card>
   );
