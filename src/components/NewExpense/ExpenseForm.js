@@ -4,9 +4,9 @@ import './ExpenseForm.css'
 const ExpenseForm = (props)=>{
 
    //useSattes for the Form Initial Conditions
-   const [EnteredTitle,setEnteredTitle] = useState("")
-   const [EnteredAmount,setEnteredAmount] = useState("")
-   const [EnteredDate,setEnteredDate] = useState("")
+   const [EnteredTitle,setEnteredTitle] = useState(' ')
+   const [EnteredAmount,setEnteredAmount] = useState(' ')
+   const [EnteredDate,setEnteredDate] = useState(' ')
 
    //handles title of the form 
    const titleChangedHandler = (event)=>{
@@ -30,7 +30,7 @@ const ExpenseForm = (props)=>{
       const expenseData = {
          title:EnteredTitle,
          amount:EnteredAmount,
-         date:EnteredDate,
+         date:new Date(EnteredDate),
       }
 
       //very Important : This is the unique way to move from child To parent ..this function call or ejects it's functionality
@@ -38,9 +38,9 @@ const ExpenseForm = (props)=>{
       
       props.onSaveExpenseData(expenseData);
       ////////////////////////////////////////////////////////
-      setEnteredTitle('');
-      setEnteredAmount('');
-      setEnteredDate('');
+      setEnteredTitle(' ');
+      setEnteredAmount(' ');
+      setEnteredDate(' ');
      // console.log(expenseData);
       
    } 
