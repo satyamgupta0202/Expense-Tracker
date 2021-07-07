@@ -24,7 +24,7 @@ const ExpenseItem = (props) => {
         <div className="expense-item__price">${props.amount}</div>
       </div>
       {/* onClick is the Prop bsically added to all sortsof the elemnts in react  */}
-      <button onClick={buttonClicked}>Title Change!</button>
+      {/* <button onClick={buttonClicked}>Title Change!</button> */}
     </Card>
   );
 };
