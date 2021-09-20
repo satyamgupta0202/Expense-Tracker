@@ -9,12 +9,12 @@ const ExpenseItem = (props) => {
   // we use const here because here we don't use = to update the value
   //rather the updatation occcurs in react memory somwhere
   const [title, setTiltle] = useState(props.title);
-  const buttonClicked = () => {
-    //Note that on first click it displays the previous title only.
-    //state change re-renders single Expense item that is been clicked by particlar btn.
-    setTiltle("Updated");
-    console.log(title);
-  };
+  // const buttonClicked = () => {
+  //   //Note that on first click it displays the previous title only.
+  //   //state change re-renders single Expense item that is been clicked by particlar btn.
+  //   setTiltle("Updated");
+  //   console.log(title);
+  // };
 
   return (
     <Card className="expense-item">
